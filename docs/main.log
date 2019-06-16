@@ -1,0 +1,1377 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=latex 2019.6.16)  16 JUN 2019 18:02
+entering extended mode
+**\makeatletter\def\HCode{\futurelet\HCode\HChar}\def\HChar{\ifx\HCode\def\HCod
+e##1{\Link##1}\expandafter\HCode\else\expandafter\Link\fi}\def\Link#1.a.b.c.{\g
+@addto@macro\@documentclasshook{\RequirePackage[#1,html]{tex4ht}}\let\HCode\doc
+umentstyle\def\documentstyle{\let\documentstyle\HCode\expandafter\def\csname te
+x4ht\endcsname{#1,html}\def\HCode####1{\documentstyle[tex4ht,}\@ifnextchar[{\HC
+ode}{\documentstyle[tex4ht]}}}\makeatother\HCode .a.b.c.\input  main.tex
+(main.tex
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.c
+ls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12.cl
+o"
+File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\tex4h
+t.sty"
+version 2018-06-12-16:01
+Package: tex4ht 
+--------------------------------------
+--- Note --- for _ at preamble, use the command line option `early_'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ at preamble, use the command line option `early^'
+--------------------------------------
+\tmp:toks=\toks14
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\usepa
+ckage.4ht")
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\bibla
+tex.sty"
+Package: biblatex 2018/11/02 v3.12 programmable bibliographies (PK/MW)
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\pdf
+texcmds.sty"
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\inf
+warerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifl
+uatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ltx
+cmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifp
+df.sty"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/etoolbox\etool
+box.sty"
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count88
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyva
+l.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvopt
+ions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvs
+etkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ete
+xcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+)))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/logreq\logreq.
+sty"
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count89
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/logreq\logreq.
+def"
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.st
+y"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+) ("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count90
+\c@listtotal=\count91
+\c@listcount=\count92
+\c@liststart=\count93
+\c@liststop=\count94
+\c@citecount=\count95
+\c@citetotal=\count96
+\c@multicitecount=\count97
+\c@multicitetotal=\count98
+\c@instcount=\count99
+\c@maxnames=\count100
+\c@minnames=\count101
+\c@maxitems=\count102
+\c@minitems=\count103
+\c@citecounter=\count104
+\c@maxcitecounter=\count105
+\c@savedcitecounter=\count106
+\c@uniquelist=\count107
+\c@uniquename=\count108
+\c@refsection=\count109
+\c@refsegment=\count110
+\c@maxextratitle=\count111
+\c@maxextratitleyear=\count112
+\c@maxextraname=\count113
+\c@maxextradate=\count114
+\c@maxextraalpha=\count115
+\c@abbrvpenalty=\count116
+\c@highnamepenalty=\count117
+\c@lownamepenalty=\count118
+\c@maxparens=\count119
+\c@parenlevel=\count120
+\blx@tempcnta=\count121
+\blx@tempcntb=\count122
+\blx@tempcntc=\count123
+\blx@maxsection=\count124
+\blx@maxsegment@0=\count125
+\blx@notetype=\count126
+\blx@parenlevel@text=\count127
+\blx@parenlevel@foot=\count128
+\blx@sectionciteorder@0=\count129
+\blx@entrysetcounter=\count130
+\labelnumberwidth=\skip43
+\labelalphawidth=\skip44
+\biblabelsep=\skip45
+\bibitemsep=\skip46
+\bibnamesep=\skip47
+\bibinitsep=\skip48
+\bibparsep=\skip49
+\bibhang=\skip50
+\blx@bcfin=\read1
+\blx@bcfout=\write3
+\c@mincomprange=\count131
+\c@maxcomprange=\count132
+\c@mincompwidth=\count133
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\blx-d
+m.def"
+File: blx-dm.def 2018/11/02 v3.12 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count134
+\c@savedafterword=\count135
+\c@annotator=\count136
+\c@savedannotator=\count137
+\c@author=\count138
+\c@savedauthor=\count139
+\c@bookauthor=\count140
+\c@savedbookauthor=\count141
+\c@commentator=\count142
+\c@savedcommentator=\count143
+\c@editor=\count144
+\c@savededitor=\count145
+\c@editora=\count146
+\c@savededitora=\count147
+\c@editorb=\count148
+\c@savededitorb=\count149
+\c@editorc=\count150
+\c@savededitorc=\count151
+\c@foreword=\count152
+\c@savedforeword=\count153
+\c@holder=\count154
+\c@savedholder=\count155
+\c@introduction=\count156
+\c@savedintroduction=\count157
+\c@namea=\count158
+\c@savednamea=\count159
+\c@nameb=\count160
+\c@savednameb=\count161
+\c@namec=\count162
+\c@savednamec=\count163
+\c@translator=\count164
+\c@savedtranslator=\count165
+\c@shortauthor=\count166
+\c@savedshortauthor=\count167
+\c@shorteditor=\count168
+\c@savedshorteditor=\count169
+\c@labelname=\count170
+\c@savedlabelname=\count171
+\c@institution=\count172
+\c@savedinstitution=\count173
+\c@lista=\count174
+\c@savedlista=\count175
+\c@listb=\count176
+\c@savedlistb=\count177
+\c@listc=\count178
+\c@savedlistc=\count179
+\c@listd=\count180
+\c@savedlistd=\count181
+\c@liste=\count182
+\c@savedliste=\count183
+\c@listf=\count184
+\c@savedlistf=\count185
+\c@location=\count186
+\c@savedlocation=\count187
+\c@organization=\count188
+\c@savedorganization=\count189
+\c@origlocation=\count190
+\c@savedoriglocation=\count191
+\c@origpublisher=\count192
+\c@savedorigpublisher=\count193
+\c@publisher=\count194
+\c@savedpublisher=\count195
+\c@language=\count196
+\c@savedlanguage=\count197
+\c@origlanguage=\count198
+\c@savedoriglanguage=\count199
+\c@pageref=\count266
+\c@savedpageref=\count267
+\shorthandwidth=\skip51
+\shortjournalwidth=\skip52
+\shortserieswidth=\skip53
+\shorttitlewidth=\skip54
+\shortauthorwidth=\skip55
+\shorteditorwidth=\skip56
+\locallabelnumberwidth=\skip57
+\locallabelalphawidth=\skip58
+\localshorthandwidth=\skip59
+\localshortjournalwidth=\skip60
+\localshortserieswidth=\skip61
+\localshorttitlewidth=\skip62
+\localshortauthorwidth=\skip63
+\localshorteditorwidth=\skip64
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\blx-c
+ompat.def"
+File: blx-compat.def 2018/11/02 v3.12 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\bibla
+tex.def"
+File: biblatex.def 2018/11/02 v3.12 biblatex compatibility (PK/MW)
+\c@textcitecount=\count268
+\c@textcitetotal=\count269
+\c@textcitemaxnames=\count270
+\c@biburlnumpenalty=\count271
+\c@biburlucpenalty=\count272
+\c@biburllcpenalty=\count273
+\c@smartand=\count274
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/bbx\n
+umeric.bbx"
+File: numeric.bbx 2018/11/02 v3.12 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/bbx\s
+tandard.bbx"
+File: standard.bbx 2018/11/02 v3.12 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count275
+\c@bbx:relatedtotal=\count276
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/cbx\n
+umeric.cbx"
+File: numeric.cbx 2018/11/02 v3.12 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\bibla
+tex.cfg"
+File: biblatex.cfg 
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.
+sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/answers\answer
+s.sty"
+Package: answers 2014/08/24 v2.16 Production of solution sheets in LaTeX2e
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim
+.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks18
+\verbatim@line=\toks19
+\verbatim@in@stream=\read2
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/setspace\setsp
+ace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graph
+icx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graph
+ics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.
+sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\g
+raphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 99.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\d
+vips.def"
+File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/enumitem\enumi
+tem.sty"
+Package: enumitem 2019/02/04 v3.8 Customized lists
+\labelindent=\skip65
+\enit@outerparindent=\dimen105
+\enit@toks=\toks20
+\enit@inbox=\box27
+\enit@count@id=\count277
+\enitdp@description=\count278
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol
+.sty"
+Package: multicol 2018/11/09 v1.8u multicolumn formatting (FMi)
+\c@tracingmulticols=\count279
+\mult@box=\box28
+\multicol@leftmargin=\dimen106
+\c@unbalance=\count280
+\c@collectmore=\count281
+\doublecol@number=\count282
+\multicoltolerance=\count283
+\multicolpretolerance=\count284
+\full@width=\dimen107
+\page@free=\dimen108
+\premulticols=\dimen109
+\postmulticols=\dimen110
+\multicolsep=\skip66
+\multicolbaselineskip=\skip67
+\partial@page=\box29
+\last@line=\box30
+\maxbalancingoverflow=\dimen111
+\mult@rightbox=\box31
+\mult@grightbox=\box32
+\mult@gfirstbox=\box33
+\mult@firstbox=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\c@columnbadness=\count285
+\c@finalcolumnbadness=\count286
+\last@try=\dimen112
+\multicolovershoot=\dimen113
+\multicolundershoot=\dimen114
+\mult@nat@firstbox=\box52
+\colbreak@box=\box53
+\mc@col@check@num=\count287
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\mathr
+sfs.sty"
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup4
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geome
+try.sty"
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifv
+tex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ifxetex\ifxe
+tex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count288
+\Gm@cntv=\count289
+\c@Gm@tempcnt=\count290
+\Gm@bindingoffset=\dimen115
+\Gm@wd@mp=\dimen116
+\Gm@odd@mp=\dimen117
+\Gm@even@mp=\dimen118
+\Gm@layoutwidth=\dimen119
+\Gm@layoutheight=\dimen120
+\Gm@layouthoffset=\dimen121
+\Gm@layoutvoffset=\dimen122
+\Gm@dimlist=\toks21
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geome
+try.cfg"))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmat
+h.sty"
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip68
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstex
+t.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen
+.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks22
+\ex@=\dimen123
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy
+.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen124
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn
+.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count291
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count292
+\leftroot@=\count293
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count294
+\DOTSCASE@=\count295
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box54
+\strutbox@=\box55
+\big@size=\dimen125
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count296
+\c@MaxMatrixCols=\count297
+\dotsspace@=\muskip11
+\c@parentequation=\count298
+\dspbrk@lvl=\count299
+\tag@help=\toks23
+\row@=\count300
+\column@=\count301
+\maxfields@=\count302
+\andhelp@=\toks24
+\eqnshift@=\dimen126
+\alignsep@=\dimen127
+\tagshift@=\dimen128
+\tagwidth@=\dimen129
+\totwidth@=\dimen130
+\lineht@=\dimen131
+\@envbody=\toks25
+\multlinegap=\skip69
+\multlinetaggap=\skip70
+\mathdisplay@stack=\toks26
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amsthm.
+sty"
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks27
+\thm@bodyfont=\toks28
+\thm@headfont=\toks29
+\thm@notefont=\toks30
+\thm@headpunct=\toks31
+\thm@preskip=\skip71
+\thm@postskip=\skip72
+\thm@headsep=\skip73
+\dth@everypar=\toks32
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssy
+mb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfo
+nts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/datetime\datet
+ime.sty"
+Package: datetime 2015/03/20 v2.60 Date Time Package
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fmtcount\fmtco
+unt.sty"
+Package: fmtcount 2017/12/24 v3.05
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xkeyval\xkeyva
+l.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\xkey
+val.tex"
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\xkvu
+tils.tex"
+\XKV@toks=\toks33
+\XKV@tempa@toks=\toks34
+)
+\XKV@depth=\count303
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fmtcount\fcpre
+fix.sty"
+Package: fcprefix 2012/09/28
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fmtcount\fcnum
+parser.sty"
+Package: fcnumparser 2017/06/15
+\fc@digit@counter=\count304
+))
+\c@padzeroesN=\count305
+\fc@tmpcatcode=\count306
+\@DT@modctr=\count307
+\@ordinalctr=\count308
+\@orgargctr=\count309
+\@strctr=\count310
+\@tmpstrctr=\count311
+\@DT@loopN=\count312
+\@DT@X=\count313
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/datetime\datet
+ime-defaults.sty"
+Package: datetime-defaults 2013/09/10
+)
+\@day=\count314
+\@month=\count315
+\@year=\count316
+\c@HOUR=\count317
+\c@HOURXII=\count318
+\c@MINUTE=\count319
+\c@TOHOUR=\count320
+\c@TOMINUTE=\count321
+\c@SECOND=\count322
+\currenthour=\count323
+\currentminute=\count324
+\currentsecond=\count325
+Package datetime Info: No datetime.cfg file found, using default settings on in
+put line 308.
+\@dtctr=\count326
+\dayofyear=\count327
+\dayofweek=\count328
+LaTeX Info: Redefining \today on input line 736.
+\dt@a=\toks35
+\dt@b=\toks36
+)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/lbx\e
+nglish.lbx"
+File: english.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
+)
+\@quotelevel=\count329
+\@quotereset=\count330
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\tex4h
+t.4ht"
+version 2018-06-12-16:03
+--------------------------------------
+--- Note --- for additional information, use the command line option `info'
+--------------------------------------
+
+::::::::::::::::::::::::::::::::::::::::::
+ TeX4ht info is available in the log file 
+::::::::::::::::::::::::::::::::::::::::::
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\tex4h
+t.sty"
+version 2018-06-12-16:01
+
+--- needs --- tex4ht main ---
+\tmp:cnt=\count331
+\openout15 = `main.tmp'.
+
+(main.tmp)
+\tmp:dim=\skip74
+--------------------------------------
+--- Note --- for XML code, use the command line option `xml' or `xhtml'
+--------------------------------------
+ (main.xref)
+\:refout=\write4
+\openout4 = `main.xref'.
+
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+--------------------------------------
+--- Note --- to remove the <?xml version=...?> processing instruction use the c
+ommand line option `no-VERSION'
+--------------------------------------
+--------------------------------------
+--- Note --- to remove the DOCTYPE declaration use the command line option `no-
+DOCTYPE'
+--------------------------------------
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+)
+--------------------------------------
+--- Note --- for marking of the base font, use the command line option `fonts+'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for non active _, use the command line option `no_'
+--------------------------------------
+--------------------------------------
+--- Note --- for _ of catcode 13, use the command line option `_13'
+--------------------------------------
+--------------------------------------
+--- Note --- for non active ^, use the command line option `no^'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ of catcode 13, use the command line option `^13'
+--------------------------------------
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+--------------------------------------
+--- Note --- for alternative charset, use the command line option `charset=...'
+
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS font decoration, use the `NoFonts' command line opti
+on
+--------------------------------------
+--------------------------------------
+--- Note --- for jpg bitmaps of pictures, use the `jpg' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for gif bitmaps of pictures, use the `gif' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for content and toc in 2 frames, use the command line option `fram
+es'
+--------------------------------------
+--------------------------------------
+--- Note --- for content, toc, and footnotes in 3 frames, use the command line 
+option `frames-fn'
+--------------------------------------
+--------------------------------------
+--- Note --- for file extension name xht, use the command line option `xht'
+--------------------------------------
+TeX4ht package options: html
+--------------------------------------
+--- Note --- To print a timestamp, use the command line option timestamp
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS code, use the command line option `-css
+--------------------------------------
+--------------------------------------
+--- Note --- for inline CSS code, use the command line option `css-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for pop ups on mouse over, use the command line option `mouseover'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for addressing images in a subdirectory, use the command line opti
+on `imgdir:.../'
+--------------------------------------
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+)
+\:tokwrite=\toks37
+\:tokpage=\toks38
+--------------------------------------
+--- Note --- for back links to toc, use the command line option `sections+'
+--------------------------------------
+--------------------------------------
+--- Note --- for linear crosslinks of pages, use the command line option `next'
+
+--------------------------------------
+\openout15 = `main.4ct'.
+
+\:tocout=\write5
+\openout5 = `main.4tc'.
+
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\latex
+.4ht"
+version 2018-08-30-15:28
+LaTeX Info: Redefining \_ on input line 168.
+--------------------------------------
+--- Note --- for links into captions, instead of float heads, use the command l
+ine option `refcaption'
+--------------------------------------
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+--------------------------------------
+--- Note --- For mini tocs immediately aftter the header use the command line o
+ption `minitoc<'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements with valued data, use the command lin
+e option `enumerate+'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements li's with value attributes, use the c
+ommand line option `enumerate-'
+--------------------------------------
+--------------------------------------
+--- Note --- for CSS2 code, use the command line option `css2'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial tabular, use the command line option `pic-tabular'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap fbox'es, use the command line option `pic-fbox'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap framebox'es, use the command line option `pic-framebox'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for inline footnotes use command line option `fn-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for tracing of latex font commands, use the command line option `f
+onts'
+--------------------------------------
+--------------------------------------
+--- Note --- for width specifications of tabular p entries, use the `p-width' c
+ommand line option or a configuration similar to \Configure{HColWidth}{\HCode{ 
+style="width:\HColWidth"}}
+--------------------------------------
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+--------------------------------------
+--- Note --- for pictorial eqnarray, use the command line option `pic-eqnarray'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ environments, use the command line option `pic
+-m' (not recommended!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ and $$...$$ environments with latex alt, use t
+he command line option `pic-m+' (not safe!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\fontm
+ath.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\artic
+le.4ht"
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+--------------------------------------
+--- Note --- for automatic sectioning pagination, use the command line option `
+1', `2', `3', '4', '5', '6', or '7'
+--------------------------------------
+--------------------------------------
+--- Note --- for files named derived from section titles, use the command line 
+option `sec-filename'
+--------------------------------------
+--------------------------------------
+--- Note --- for i-columns index, use the command line option `index=i' (e.g., 
+index=2)
+--------------------------------------
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\bibla
+tex.4ht"
+version 2018-04-06-14:54
+\sv:sec:cnt=\count332
+\c@bib=\count333
+LaTeX Info: Redefining \MakeUppercase on input line 202.
+LaTeX Info: Redefining \MakeLowercase on input line 210.
+\blx@unitmark=\skip75
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\ifthe
+n.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\url.4
+ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+--------------------------------------
+--- Note --- for URL encoding within href use the command line option `url-enc'
+
+--------------------------------------
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\input
+enc.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\verba
+tim.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\graph
+icx.4ht"
+version 2018-10-01-14:24
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\graph
+ics.4ht"
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+--------------------------------------
+--- Note --- if included graphics are of degraded quality, try the command line
+ options `graphics-num' or `graphics-'. The `num' should provide the density of
+ pixels in the bitmaps (e.g., 110). 
+--------------------------------------
+--------------------------------------
+--- Note --- for key dimensions try the option `Gin-dim'; for key dimensions wh
+en bounding box is unavailable try `Gin-dim+'; neither is recommended
+--------------------------------------
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\dvips
+.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\enumi
+tem.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\multi
+col.4ht"
+version 2013-07-31-09:45
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\geome
+try.4ht"
+version 2016-07-01-08:55
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\amsma
+th.4ht"
+version 2009-05-21-09:32
+\tmp:muskip=\muskip12
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\amste
+xt.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\amsbs
+y.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\amsop
+n.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\amsth
+m.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\amssy
+mb.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\amsfo
+nts.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\engli
+sh.4ht"
+version 2009-05-21-09:32
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+))
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+.4ht"
+version 2018-10-15-15:56
+)
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/generic/tex4ht\html4
+-math.4ht"
+version 2017-03-30-16:04
+)) (main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' not found.
+
+No file main.bbl.
+Package biblatex Info: Reference section=0 on input line 32.
+Package biblatex Info: Reference segment=0 on input line 32.
+*geometry* driver: auto-detecting
+*geometry* detected driver: dvips
+*geometry* verbose mode - [ preamble ] result:
+* driver: dvips
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fmtcount\fc-en
+glish.def"
+File: fc-english.def 2016/01/12
+)
+--- file main.css ---
+ [1
+
+] [2]
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 42.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs
+.fd"
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 42.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.
+fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 42.
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.
+fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+--- file main2.html ---
+\c@mydef=\count334
+ [3
+
+]
+l. 60 Writing main.idv[1] (main0x.png)
+
+
+LaTeX Warning: Citation 'kulis2012metric' on page 4 undefined on input line 66.
+
+
+l. 69 Writing main.idv[2] (main1x.png)
+[4]
+l. 76 Writing main.idv[3] (main2x.png)
+
+
+LaTeX Warning: Citation 'weinberger2009distance' on page 5 undefined on input l
+ine 84.
+
+[5] [6
+
+]
+l.87 --- TeX4ht warning --- File `"images/lmnn.xbb"' not found ---
+l.87 --- TeX4ht warning --- Cannot determine size of graphic in "images/lmnn.xb
+b" (no BoundingBox) ---
+l. 87 --- needs --- images/lmnn.png ---
+
+LaTeX Warning: Citation 'weinberger2009distance' on page 7 undefined on input l
+ine 88.
+
+[7
+
+]
+l. 92 Writing main.idv[4] (main3x.png)
+l. 97 Writing main.idv[5] (main4x.png)
+
+
+LaTeX Warning: Citation 'shalev2004online' on page 8 undefined on input line 10
+6.
+
+[8
+
+]
+l. 107 Writing main.idv[6] (main5x.png)
+l. 111 Writing main.idv[7] (main6x.png)
+l. 117 Writing main.idv[8] (main7x.png)
+ [9]
+l. 122 Writing main.idv[9] (main8x.png)
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 127.
+l. 128 Writing main.idv[10] (main9x.png)
+l. 132 Writing main.idv[11] (main10x.png)
+ [10]
+l. 136 Writing main.idv[12] (main11x.png)
+l. 140 Writing main.idv[13] (main12x.png)
+l. 144 Writing main.idv[14] (main13x.png)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 146.
+
+
+("C:\Users\ParagJain\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd
+"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 146.
+l. 146 Writing main.idv[15] (main14x.png)
+l. 146 Writing main.idv[16] (main15x.png)
+l. 146 Writing main.idv[17] (main16x.png)
+l. 146 Writing main.idv[18] (main17x.png)
+ [11]
+l. 148 Writing main.idv[19] (main18x.png)
+l. 148 Writing main.idv[20] (main19x.png)
+l. 148 Writing main.idv[21] (main20x.png)
+l. 149 Writing main.idv[22] (main21x.png)
+
+
+LaTeX Warning: Citation 'davis2007information' on page 12 undefined on input li
+ne 156.
+
+l. 158 Writing main.idv[23] (main22x.png)
+[12]
+l. 162 Writing main.idv[24] (main23x.png)
+l. 172 Writing main.idv[25] (main24x.png)
+ [13]
+l. 179 Writing main.idv[26] (main25x.png)
+
+
+LaTeX Warning: Citation 'davis2007information' on page 14 undefined on input li
+ne 187.
+
+
+LaTeX Warning: Citation 'kunapuli2012mirror' on page 14 undefined on input line
+ 191.
+
+l. 192 Writing main.idv[27] (main26x.png)
+l. 197 Writing main.idv[28] (main27x.png)
+l. 202 Writing main.idv[29] (main28x.png)
+[14]
+
+LaTeX Warning: Citation 'cpcm' on page 15 undefined on input line 213.
+
+
+LaTeX Warning: Citation 'coifman2006diffusion' on page 15 undefined on input li
+ne 216.
+
+l. 216 Writing main.idv[30] (main29x.png)
+l. 217 Writing main.idv[31] (main30x.png)
+[15]
+l. 221 Writing main.idv[32] (main31x.png)
+l. 225 Writing main.idv[33] (main32x.png)
+
+
+LaTeX Warning: Citation 'jiang2011unsupervised' on page 16 undefined on input l
+ine 230.
+
+[16]
+
+LaTeX Warning: Citation 'cpcm' on page 17 undefined on input line 240.
+
+l. 240 Writing main.idv[34] (main33x.png)
+l. 241 Writing main.idv[35] (main34x.png)
+[17]
+l. 262 Writing main.idv[36] (main35x.png)
+l. 269 Writing main.idv[37] (main36x.png)
+l. 273 Writing main.idv[38] (main37x.png)
+ [18]
+
+LaTeX Warning: Citation 'ebert2012active' on page 19 undefined on input line 28
+6.
+
+
+LaTeX Warning: Citation 'wang2009two' on page 19 undefined on input line 296.
+
+[19]
+l. 299 Writing main.idv[39] (main38x.png)
+
+
+LaTeX Warning: Empty bibliography on input line 305.
+
+[20] (main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 14852 strings out of 492947
+ 240002 string characters out of 3124516
+ 716076 words of memory out of 3000000
+ 18428 multiletter control sequences out of 15000+200000
+ 15018 words of font info for 61 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 39i,13n,44p,1451b,1538s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on main.dvi (20 pages, 68768 bytes).

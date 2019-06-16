@@ -1,0 +1,8 @@
+In batch mode we re-compute the diffusion distance for each point.
+In incremental we call incremental diffusion maps procedure for every 10 points we still do not recompute but keep on approximating on previously obtained values.
+
+Timing summary:
+Total elapsed time for batch update 31.929482 seconds.
+Total elapsed time for incremental update is 6.966448 seconds.
+Initial size 1600
+Number of iterations 40

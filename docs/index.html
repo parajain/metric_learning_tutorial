@@ -1,0 +1,1134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Metric Learning Tutorial</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+</head><body 
+>
+   <div class="maketitle">
+
+
+
+<h2 class="titleHead">Metric Learning Tutorial</h2>
+                   <div class="author" ><span 
+class="cmr-12x-x-120">Parag Jain</span>
+<!--<br />            <span 
+class="cmr-12x-x-120">cs13m1008@iith.ac.in</span>
+<br /><span 
+class="cmr-12x-x-120">Indian Institute of Technology, Hyderabad</span></div><br />-->
+<div class="date" ></div>
+   </div><a 
+ id="x1-1doc"></a>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Metric Learning methods</h3>
+<!--l. 46--><p class="noindent" ><span class="footnote-mark"><a 
+href="main2.html#fn1x0"><sup class="textsuperscript"></sup></a></span><a 
+ id="x1-1001f1"></a> Most
+popular machine learning algorithms like k-nearest neighbour, k-means, SVM uses a metric to
+identify the distance(or similarity) between data instances. It is clear that performances of these
+algorithm heavily depends on the metric being used. In absence of prior knowledge about data we
+can only use general purpose metrics like Euclidean distance, Cosine similarity or Manhattan
+distance etc, but these metric often fail to capture the correct behaviour of data which directly
+affects the performance of the learning algorithm. Solution to this problem is to tune the
+metric according to the data and the problem, manually deriving the metric for high
+dimensional data which is often difficult to even visualize is not only tedious but is
+extremely difficult. Which leads to put effort on <span 
+class="cmti-12">metric learning </span>which satisfies the data
+geometry.<br 
+class="newline" />Goal of metric learning algorithm is to learn a metric which assigns small distance to similar points
+and relatively large distance to dissimilar points.
+   <div class="newtheorem">
+<!--l. 50--><p class="noindent" ><span class="head">
+<a 
+ id="x1-1002r1"></a>
+<span 
+class="cmbx-12">Definition 1.</span>
+</span><span 
+class="cmti-12">A metric on a set</span> <span 
+class="cmmi-12">X</span> <span 
+class="cmti-12">is a function (called the distance function or simply distance).</span><br 
+class="newline" /><span 
+class="cmmi-12">d </span>: <span 
+class="cmmi-12">X </span><span 
+class="cmsy-10x-x-120">&#x00D7; </span><span 
+class="cmmi-12">X </span><span 
+class="cmsy-10x-x-120">&#x2192; </span><span 
+class="cmmi-12">R</span><span 
+class="cmti-12">,</span><br 
+class="newline" /><span 
+class="cmti-12">where</span> <span 
+class="cmmi-12">R</span> <span 
+class="cmti-12">is a set of real numbers, and for all x,y,z in</span> <span 
+class="cmmi-12">X</span> <span 
+class="cmti-12">following condition are satisfied:</span><br 
+class="newline" /><span 
+class="cmti-12">1.d(x, y) </span><span 
+class="cmsy-10x-x-120">&#x2265; </span><span 
+class="cmti-12">0</span>  <span 
+class="cmti-12">(non-negativity)</span><br 
+class="newline" /><span 
+class="cmti-12">2.d(x, y) = 0 if and only if x = y</span>  <span 
+class="cmti-12">(coincidence axiom)</span><br 
+class="newline" /><span 
+class="cmti-12">3.d(x, y) = d(y, x) (symmetry)</span><br 
+class="newline" /><span 
+class="cmti-12">4.d(x, z) </span><span 
+class="cmsy-10x-x-120">&#x2264; </span><span 
+class="cmti-12">d(x, y) + d(y, z)</span>  <span 
+class="cmti-12">(triangle inequality).</span>
+   </div>
+<!--l. 59--><p class="indent" >   If a function does not satisfy the second property but satisfies other three then it is called a
+<span 
+class="cmbx-12">pseudometric</span>. But since most of the metric learning methods learns a pseudometric instead of a
+metric for rest of the discussion we will refer pseudometric as metric. Most of the metric learning
+methods in literature learns the metric of form,
+   <table 
+class="equation"><tr><td><a 
+ id="x1-1003r1"></a>
+   <center class="math-display" >
+<img 
+src="main0x.png" alt="            &#x2218; -------------------
+dM (x,x &#x2032;) =   (x &#x2212; x&#x2032;)TM (x &#x2212; x &#x2032;)
+" class="math-display" ></center></td><td class="equation-label">(1)</td></tr></table>
+<!--l. 62--><p class="nopar" >
+which is Mahalanobis distance,where, <span 
+class="cmmi-12">M </span>= (<span 
+class="cmmi-12">A</span><sup><span 
+class="cmr-8">1</span><span 
+class="cmmi-8">&#x2215;</span><span 
+class="cmr-8">2</span></sup>)<sup><span 
+class="cmmi-8">T</span> </sup>(<span 
+class="cmmi-12">A</span><sup><span 
+class="cmr-8">1</span><span 
+class="cmmi-8">&#x2215;</span><span 
+class="cmr-8">2</span></sup>) is a positive semi-definite
+matrix.<br 
+class="newline" />
+   <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x1-20001.1"></a>Supervised Metric Learning</h4>
+<!--l. 66--><p class="noindent" >Given a set of <span 
+class="cmmi-12">k </span>dimensional data points <span 
+class="cmmi-12">X </span><span 
+class="cmsy-10x-x-120">&#x2208;&#x211B;</span><sup><span 
+class="cmmi-8">N</span><span 
+class="cmsy-8">&#x00D7;</span><span 
+class="cmmi-8">k</span></sup>, supervised metric learning methods learns a
+metric by using some similarity/dissimilarity information provided as a constraints. There are
+different formulations proposed for supervised metric learning accommodating different kinds of
+constraints. In a general supervised setting most popular form of constraints used in literature
+[<span 
+class="cmbx-12">kulis2012metric</span>] are:
+      <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Similarity/dissimilarity constraints <div class="eqnarray">
+      <center class="math-display" >
+      <img 
+src="main1x.png" alt="dA (xi,xj ) &#x2264; u  (i,j)  &#x2208; S
+
+ dA(xi,xj) &#x2265; l  (i,j)  &#x2208; D
+      " class="math-display" ></center>
+      </div>where, (<span 
+class="cmmi-12">i,j</span>) <span 
+class="cmsy-10x-x-120">&#x2208; </span><span 
+class="cmmi-12">S </span>for objects that are similar, (<span 
+class="cmmi-12">i,j</span>) <span 
+class="cmsy-10x-x-120">&#x2208; </span><span 
+class="cmmi-12">D </span>for objects that are dissimilar.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Relative constraints<br 
+class="newline" /><span 
+class="cmmi-12">R </span>=  (<span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub><span 
+class="cmmi-12">,x</span><sub><span 
+class="cmmi-8">j</span></sub><span 
+class="cmmi-12">,x</span><sub><span 
+class="cmmi-8">k</span></sub>) : <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> should be more similar to <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">j</span></sub> than to <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">k</span></sub> .: <div class="eqnarray">
+      <center class="math-display" >
+      <img 
+src="main2x.png" alt="dA (xi,xj) &#x003C; dA (xi,xk) &#x2212; m
+      " class="math-display" ></center>
+      </div>Where <span 
+class="cmmi-12">m </span>is margin, generally <span 
+class="cmmi-12">m </span>is chosen to be 1.</dd></dl>
+<!--l. 81--><p class="noindent" >Next section summarizes some of the widely used methods.
+<!--l. 83--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">1.1.1   </span> <a 
+ id="x1-30001.1.1"></a>Large Margin Nearest Neighbor</h5>
+<!--l. 84--><p class="noindent" >Large Margin Nearest Neighbour(LMNN) [<span 
+class="cmbx-12">weinberger2009distance</span>] learns a metric of form <a 
+href="#x1-1003r1">1<!--tex4ht:ref: metricform --></a>
+parameterized by matrix <span 
+class="cmmi-12">A </span>for kNN classification setting. Intuition behind this method is to learn
+a metric so that the k-nearest-neighbours belongs to the same class while instances with difference
+class labels should be separated by a margin.<br 
+class="newline" /><hr class="figure"><div class="figure" 
+>
+
+<a 
+ id="x1-30011"></a>
+
+<div class="center" 
+>
+<!--l. 86--><p class="noindent" >
+<!--l. 87--><p class="noindent" ><img 
+src="images/lmnn.png" alt="PIC"  
+>
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;1: </span><span  
+class="content">Schematic illustration of LMNN approach [<span 
+class="cmbx-12">weinberger2009distance</span>]</span></div><!--tex4ht:label?: x1-30011 -->
+</div>
+
+<!--l. 90--><p class="indent" >   </div><hr class="endfigure">
+<!--l. 91--><p class="indent" >   Let <span 
+class="cmmi-12">X</span><sub><span 
+class="cmmi-8">n</span><span 
+class="cmsy-8">&#x00D7;</span><span 
+class="cmmi-8">d</span></sub> is a set of data points in <span 
+class="cmmi-12">d </span>dimensional space, and class labels <span 
+class="cmmi-12">y</span><sub><span 
+class="cmmi-8">i</span></sub><span style="margin-left:3.26288pt" class="tmspace"></span> : <span style="margin-left:3.26288pt" class="tmspace"></span><span 
+class="cmmi-12">i </span>= 1<span 
+class="cmmi-12">...n </span>we define
+<span 
+class="cmti-12">target neighbours </span>for each point <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> <span 
+class="cmsy-10x-x-120">&#x2208; </span><span 
+class="cmmi-12">X </span>as those points which are in k-nearest-neighbour of <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> and
+share the same label <span 
+class="cmmi-12">y</span><sub><span 
+class="cmmi-8">i</span></sub> and points which do not have same label as of <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> we call them
+<span 
+class="cmti-12">impostors</span>. Formulation consist of two terms which compete with each other, first term is
+to penalizes the large distance between each point <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> and its target neighbors while
+second term penalizes small distance between <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> and impostors. Cost function is defined
+as:
+   <table 
+class="equation"><tr><td><a 
+ id="x1-3002r2"></a>
+   <center class="math-display" >
+<img 
+src="main3x.png" alt="       &#x2211;                 2    &#x2211;                             2               2
+&#x1D716;(L ) =    &#x03B7;ij||L(xi &#x2212; xj)||  + c   &#x03B7;ij(1 &#x2212; Yil[1 + ||L(xi &#x2212; xj)|| +  ||L(xi &#x2212; xl)|| ]+ )
+        ij                      ij
+" class="math-display" ></center></td><td class="equation-label">(2)</td></tr></table>
+<!--l. 94--><p class="nopar" >
+Where <span 
+class="cmmi-12">Y</span> <sub><span 
+class="cmmi-8">ij</span></sub> and <span 
+class="cmmi-12">&#x03B7;</span><sub><span 
+class="cmmi-8">ij</span></sub> are binary matrices such that <span 
+class="cmmi-12">Y</span> <sub><span 
+class="cmmi-8">ij</span></sub> is 1 when labels <span 
+class="cmmi-12">y</span><sub><span 
+class="cmmi-8">i</span></sub> and <span 
+class="cmmi-12">y</span><sub><span 
+class="cmmi-8">j</span></sub> match and <span 
+class="cmmi-12">&#x03B7;</span><sub><span 
+class="cmmi-8">ij</span></sub> is 1
+when <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">j</span></sub> is in the target neighbours of <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub>, in second term [<span 
+class="cmmi-12">z</span>]<sub><span 
+class="cmr-8">+</span></sub> = <span 
+class="cmmi-12">max</span>(0<span 
+class="cmmi-12">,z</span>) is a standard hinge loss
+function and <span 
+class="cmmi-12">c </span>is some positive constant. Using cost function defined in <a 
+href="#x1-3002r2">2<!--tex4ht:ref: lmnncost --></a> a convex optimization
+problem can be formulated as:
+<!--l. 97--><p class="indent" >   <table 
+class="gather"><tr><td class="gather1"><img 
+src="main4x.png" alt="           &#x2211;             T                &#x2211;
+      min     &#x03B7;ij(xi &#x2212; xj ) M (xi &#x2212; xj) + c  &#x03B7;ij(1 &#x2212; Yil&#x03BE;ijl)
+            ij                              ij
+subject to   (xi &#x2212; xl)TM (xi &#x2212; xl) &#x2212; (xi &#x2212; xj )T M (xi &#x2212; xj) &#x2265; 1 &#x2212; &#x03BE;ijl
+
+                                &#x03BE;ijl &#x2265; 0
+                                 M  &#x227D; 0
+" ><a 
+ id="x1-3004r3"></a></td><td class="equation-label"><br />(3)<br /></td></tr></table>where matrix <span 
+class="cmmi-12">M </span>= <span 
+class="cmmi-12">L</span><sup><span 
+class="cmmi-8">T</span> </sup><span 
+class="cmmi-12">L </span>and <span 
+class="cmmi-12">&#x03B7;</span><sub>
+<span 
+class="cmmi-8">ijl</span></sub> are slack variables.
+   <h5 class="subsubsectionHead"><span class="titlemark">1.1.2   </span> <a 
+ id="x1-40001.1.2"></a>Pseudo-Metric Online Learning Algorithm</h5>
+<!--l. 106--><p class="noindent" >Pseudo-Metric Online Learning algorithm (POLA) proposed by Shalev-Shwartz et al
+[<span 
+class="cmbx-12">shalev2004online</span>] updated/learns the mertic in an online manner. In this method, given that <span 
+class="cmsy-10x-x-120">&#x1D4B3;</span>
+denotes the feature space, POLA learns a metric of the form:
+   <table 
+class="equation-star"><tr><td>
+
+   <center class="math-display" >
+<img 
+src="main5x.png" alt="           &#x2218;  ------------------
+dA (x, x&#x2032;) =   (x &#x2212; x&#x2032;)&#x2032;A (x &#x2212; x &#x2032;)
+" class="math-display" ></center></td></tr></table>
+<!--l. 109--><p class="nopar" >
+where <span 
+class="cmmi-12">A </span>is a positive semi-definite (PSD) matrix that defines the metric. The algorithm receives new
+samples as similarity and dissimilarity pairs in the form of <span 
+class="cmmi-12">z </span>= (<span 
+class="cmmi-12">x,x</span><span 
+class="cmsy-10x-x-120">&#x2032;</span><span 
+class="cmmi-12">,y</span>) <span 
+class="cmsy-10x-x-120">&#x2208; </span>(<span 
+class="cmsy-10x-x-120">&#x1D4B3;&#x00D7;&#x1D4B3;&#x00D7;{</span>+1<span 
+class="cmmi-12">,</span><span 
+class="cmsy-10x-x-120">&#x2212;</span>1<span 
+class="cmsy-10x-x-120">}</span>),
+where <span 
+class="cmmi-12">y </span>= +1 if pair (<span 
+class="cmmi-12">x,x</span><span 
+class="cmsy-10x-x-120">&#x2032;</span>) are similar, otherwise <span 
+class="cmmi-12">y </span>= <span 
+class="cmsy-10x-x-120">&#x2212;</span>1. The loss function is defined
+as:
+   <table 
+class="equation"><tr><td><a 
+ id="x1-4001r4"></a>
+   <center class="math-display" >
+<img 
+src="main6x.png" alt="                           &#x2032; 2
+l&#x03C4;(A,b) = max {0,y &#x03C4;(dA (x,x ) &#x2212; b) + 1}
+" class="math-display" ></center></td><td class="equation-label">(4)</td></tr></table>
+<!--l. 113--><p class="nopar" >
+where <span 
+class="cmmi-12">b </span><span 
+class="cmsy-10x-x-120">&#x2208; </span><span 
+class="msbm-10x-x-120">&#x211D; </span>is a threshold. If <span 
+class="cmmi-12">d</span><sub><span 
+class="cmmi-8">A</span></sub>(<span 
+class="cmmi-12">x,x</span><span 
+class="cmsy-10x-x-120">&#x2032;</span>) <span 
+class="cmmi-12">&#x003E; b</span>, we predict pairs to be dissimilar otherwise similar. The
+goal is to learn a matrix-threshold pair (<span 
+class="cmmi-12">A</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmmi-12">,b</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub>) which minimizes the cumulative loss. At each step,
+the algorithm receives a pair (<span 
+class="cmmi-12">x,x</span><span 
+class="cmsy-10x-x-120">&#x2032;</span><span 
+class="cmmi-12">,y</span>) and updates the matrix threshold pair (<span 
+class="cmmi-12">A</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmmi-12">,b</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub>) in two
+steps:
+      <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Projecting the current solution (<span 
+class="cmmi-12">A</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmmi-12">,b</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub>) onto set <span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> where
+      <table 
+class="equation-star"><tr><td>
+      <center class="math-display" >
+      <img 
+src="main7x.png" alt="                  2
+C &#x03C4; = {(A, b) &#x2208; &#x211D; (n +1) : l&#x03C4;(A, b) = 0}
+      " class="math-display" ></center></td></tr></table>
+
+      <!--l. 119--><p class="nopar" >
+      i.e. <span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> is a set of all matrix-threshold pairs which gives zero loss on (<span 
+class="cmmi-12">x,x</span><span 
+class="cmsy-10x-x-120">&#x2032;</span><span 
+class="cmmi-12">,y</span>).
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Projecting the new matrix-threshold pair to set of all admissible matrix-threshold pairs
+      <span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">a</span></sub>,
+      <table 
+class="equation-star"><tr><td>
+      <center class="math-display" >
+      <img 
+src="main8x.png" alt="                (n2+1)
+Ca = { (A, b) &#x2208; &#x211D;      : A &#x227D; 0,b &#x2265; 1}
+      " class="math-display" ></center></td></tr></table>
+      <!--l. 124--><p class="nopar" >
+      </dd></dl>
+<!--l. 127--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x1-50001.1.2"></a><span 
+class="cmbx-12">Projecting onto </span><span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmbx-12">:</span></span>
+   We denote the matrix-threshold pair as a vector <span 
+class="cmmi-12">w </span><span 
+class="cmsy-10x-x-120">&#x2208; </span><span 
+class="msbm-10x-x-120">&#x211D;</span><sup><span 
+class="cmmi-8">n</span><sup><span 
+class="cmr-6">2</span></sup><span 
+class="cmr-8">+1</span></sup>, and <span 
+class="cmsy-10x-x-120">&#x1D4B3;</span><sub>
+<span 
+class="cmmi-8">&#x03C4;</span></sub> <span 
+class="cmsy-10x-x-120">&#x2208; </span><span 
+class="msbm-10x-x-120">&#x211D;</span><sup><span 
+class="cmmi-8">n</span><sup><span 
+class="cmr-6">2</span></sup><span 
+class="cmr-8">+1</span></sup> as a vector form of
+a matrix-scalar pair (<span 
+class="cmsy-10x-x-120">&#x2212;</span><span 
+class="cmmi-12">y</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><sup><span 
+class="cmmi-8">t</span></sup><span 
+class="cmmi-12">,y</span><sub>
+<span 
+class="cmmi-8">&#x03C4;</span></sub>), where <span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> = <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> <span 
+class="cmsy-10x-x-120">&#x2212; </span><span 
+class="cmmi-12">x</span><span 
+class="cmsy-10x-x-120">&#x2032;</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub>. Using this, we can rewrite set <span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub>
+as,
+   <table 
+class="equation-star"><tr><td>
+   <center class="math-display" >
+<img 
+src="main9x.png" alt="              2
+C &#x03C4; = {w &#x2208;  &#x211B;n +1 : w &#x1D4B3; &#x03C4; &#x2265; 1}
+" class="math-display" ></center></td></tr></table>
+<!--l. 130--><p class="nopar" >
+Now, we can write the projection of <span 
+class="cmmi-12">w</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> onto <span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> as:
+   <table 
+class="equation"><tr><td><a 
+ id="x1-5001r5"></a>
+
+   <center class="math-display" >
+<img 
+src="main10x.png" alt="&#x1D4AB;C  (w &#x03C4;) = w &#x03C4; + &#x03B1; &#x03C4;&#x1D4B3;&#x03C4;
+   &#x03C4;
+" class="math-display" ></center></td><td class="equation-label">(5)</td></tr></table>
+<!--l. 134--><p class="nopar" >
+where <span 
+class="cmmi-12">&#x03B1;</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> = 0 if <span 
+class="cmmi-12">w</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmsy-10x-x-120">&#x1D4B3;</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> <span 
+class="cmsy-10x-x-120">&#x2265; </span>1 otherwise <span 
+class="cmmi-12">&#x03B1;</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> = (1 <span 
+class="cmsy-10x-x-120">&#x2212; </span><span 
+class="cmmi-12">w</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmsy-10x-x-120">&#x1D4B3;</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub>)<span 
+class="cmmi-12">&#x2215;</span><span 
+class="cmsy-10x-x-120">||</span><span 
+class="cmsy-10x-x-120">&#x1D4B3;</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmsy-10x-x-120">||</span><sub><span 
+class="cmr-8">2</span></sub><sup><span 
+class="cmr-8">2</span></sup>, i.e.
+   <table 
+class="equation-star"><tr><td>
+   <center class="math-display" >
+<img 
+src="main11x.png" alt="&#x03B1;&#x03C4; = l&#x03C4;(A-&#x03C4;,b&#x03C4;)=  l&#x03C4;(A&#x03C4;,b&#x03C4;)-
+       ||&#x1D4B3; &#x03C4;||22     ||v&#x03C4;||42 + 1
+" class="math-display" ></center></td></tr></table>
+<!--l. 138--><p class="nopar" >
+Based on this, we can update matrix-threshold pair as:
+   <table 
+class="equation"><tr><td><a 
+ id="x1-5002r6"></a>
+   <center class="math-display" >
+<img 
+src="main12x.png" alt="                   t
+A &#x02C6;&#x03C4; = A&#x03C4; &#x2212; y&#x03C4;&#x03B1; &#x03C4;v&#x03C4;v&#x03C4;,  b&#x02C6;&#x03C4; = b&#x03C4; + &#x03B1;&#x03C4;y&#x03C4;
+" class="math-display" ></center></td><td class="equation-label">(6)</td></tr></table>
+<!--l. 142--><p class="nopar" >
+<!--l. 144--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x1-60001.1.2"></a><span 
+class="cmbx-12">Projecting onto </span><span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">a</span></sub><span 
+class="cmbx-12">:</span></span>
+   Projecting <span 
+class="cmmi-12">b</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> on set <span 
+class="cmsy-10x-x-120">{</span><span 
+class="cmmi-12">b </span><span 
+class="cmsy-10x-x-120">&#x2208; </span><span 
+class="msbm-10x-x-120">&#x211D; </span>: <span 
+class="cmmi-12">b </span><span 
+class="cmsy-10x-x-120">&#x2265; </span>1<span 
+class="cmsy-10x-x-120">} </span>is straightforward and can be achieved as <span 
+class="cmmi-12">b</span><sub><span 
+class="cmmi-8">&#x03C4;</span><span 
+class="cmr-8">+1</span></sub> = <span 
+class="cmmi-12">max</span><span 
+class="cmsy-10x-x-120">{</span>1<span 
+class="cmmi-12">,b</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmsy-10x-x-120">}</span>.
+However, projecting <span 
+class="cmmi-12">A</span><sub><img 
+src="main13x.png" alt="&#x02C6;&#x03C4;"  class="circ" ></sub> has two cases,
+
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="cmmi-12">y</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> = <span 
+class="cmsy-10x-x-120">&#x2212;</span>1: In this case, <span 
+class="cmmi-12">A</span><sub><img 
+src="main14x.png" alt="&#x02C6;&#x03C4;"  class="circ" ></sub> becomes <span 
+class="cmmi-12">A</span><sub><img 
+src="main15x.png" alt="&#x02C6;&#x03C4;"  class="circ" ></sub> = <span 
+class="cmmi-12">A</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> + <span 
+class="cmmi-12">&#x03B1;</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><sup><span 
+class="cmmi-8">t</span></sup> and <span 
+class="cmmi-12">&#x03B1; </span><span 
+class="cmsy-10x-x-120">&#x2265; </span>0. Therefore, <span 
+class="cmmi-12">A</span><sub><img 
+src="main16x.png" alt="&#x02C6;&#x03C4;"  class="circ" ></sub> <span 
+class="cmsy-10x-x-120">&#x227D; </span>0
+      and hence, <span 
+class="cmmi-12">A</span><sub><span 
+class="cmmi-8">&#x03C4;</span><span 
+class="cmr-8">+1</span></sub> = <span 
+class="cmmi-12">A</span><sub><img 
+src="main17x.png" alt="&#x03C4;&#x02C6;"  class="circ" ></sub>.
+      </li>
+      <li class="itemize"><span 
+class="cmmi-12">y</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> = +1: In this case, we can write <span 
+class="cmmi-12">A</span><sub><img 
+src="main18x.png" alt="&#x02C6;&#x03C4;"  class="circ" ></sub> = <span 
+class="cmex-10x-x-120">&#x2211;</span>
+  <sub><span 
+class="cmmi-8">i</span><span 
+class="cmr-8">=1</span></sub><sup><span 
+class="cmmi-8">n</span></sup><span 
+class="cmmi-12">&#x03BB;</span><sub>
+<span 
+class="cmmi-8">i</span></sub><span 
+class="cmmi-12">u</span><sub><span 
+class="cmmi-8">i</span></sub><span 
+class="cmmi-12">u</span><sub><span 
+class="cmmi-8">i</span></sub><sup><span 
+class="cmmi-8">t</span></sup> where <span 
+class="cmmi-12">u</span><sub>
+<span 
+class="cmmi-8">i</span></sub> is the <span 
+class="cmmi-12">i</span><sup><span 
+class="cmmi-8">th</span></sup> eigenvector of <span 
+class="cmmi-12">A</span><sub><img 
+src="main19x.png" alt="&#x02C6;&#x03C4;"  class="circ" ></sub>
+      and <span 
+class="cmmi-12">&#x03BB;</span><sub><span 
+class="cmmi-8">i</span></sub> is corresponding eigenvalue. We can hence get <span 
+class="cmmi-12">A</span><sub><span 
+class="cmmi-8">&#x03C4;</span><span 
+class="cmr-8">+1</span></sub> by projecting <span 
+class="cmmi-12">A</span><sub><img 
+src="main20x.png" alt="&#x02C6;&#x03C4;"  class="circ" ></sub> to the PSD cone
+      as:
+      <table 
+class="equation-star"><tr><td>
+      <center class="math-display" >
+      <img 
+src="main21x.png" alt="         n
+        &#x2211;         t
+A &#x03C4;+1 =       &#x03BB;iuiui
+        i:&#x03BB;i&#x003E;0
+      " class="math-display" ></center></td></tr></table>
+      <!--l. 151--><p class="nopar" >
+      </li></ul>
+<!--l. 153--><p class="noindent" >For every new sample pair, the update is done by successively projecting (<span 
+class="cmmi-12">A</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub><span 
+class="cmmi-12">,b</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub>) to <span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">&#x03C4;</span></sub> and
+<span 
+class="cmmi-12">C</span><sub><span 
+class="cmmi-8">a</span></sub>.
+<!--l. 155--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">1.1.3   </span> <a 
+ id="x1-70001.1.3"></a>Information Theoretic Metric Learning</h5>
+<!--l. 156--><p class="noindent" >Information Theoretic Metric Learning(ITML)[<span 
+class="cmbx-12">davis2007information</span>] learns a mahalanobis
+distance metric that satisfy some given similarity and dissimilarity constraints on input data. Goal
+of ITML algorithm is to learn a metric of form <span 
+class="cmmi-12">d</span><sub><span 
+class="cmmi-8">A</span></sub> = (<span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> <span 
+class="cmsy-10x-x-120">&#x2212;</span><span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">j</span></sub>)<span 
+class="cmsy-10x-x-120">&#x2032;</span><span 
+class="cmmi-12">A</span>(<span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> <span 
+class="cmsy-10x-x-120">&#x2212;</span><span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">j</span></sub>) according to which similar
+data point is close relative to dissimilar points.<br 
+class="newline" />ITML starts with an initial matrix <span 
+class="cmmi-12">d</span><sub><span 
+class="cmmi-8">A</span><sub><span 
+class="cmr-6">0</span></sub></sub>  where <span 
+class="cmmi-12">A</span><sub><span 
+class="cmr-8">0</span></sub> can be set to identity matrix(I) or inverse of
+covariance of the data and eventually learns a metric <span 
+class="cmmi-12">d</span><sub><span 
+class="cmmi-8">A</span></sub> which is close to starting metric
+<span 
+class="cmmi-12">d</span><sub><span 
+class="cmmi-8">A</span><sub><span 
+class="cmr-6">0</span></sub></sub>  and satisfies the the defined constraints. To measure distance between metrics it
+exploits the bijection between Gaussian distribution with fixed mean <span 
+class="cmmi-12">&#x03BC; </span>and Mahalanobis
+distance,
+   <table 
+class="equation-star"><tr><td>
+
+   <center class="math-display" >
+<img 
+src="main22x.png" alt="              1-       1-
+&#x1D4A9;  (x |&#x03BC;, A) =  Zexp ( &#x2212; 2dA (x, &#x03BC;))
+" class="math-display" ></center></td></tr></table>
+<!--l. 160--><p class="nopar" >
+Using the above connection, the problem is formulated as:
+   <table 
+class="equation"><tr><td><a 
+ id="x1-7001r7"></a>
+   <center class="math-display" >
+<img 
+src="main23x.png" alt="                      &#x1D4A9; (x,&#x03BC;, A0)
+   miAn &#x1D4A9; (x,&#x03BC;,A0 )log(&#x1D4A9;--(x,-&#x03BC;,A-) )dx
+
+subject to  dA (xi,xj) &#x2264; u&#x2200;(xi,xj) &#x2208; S,
+         dA(xi,xj) &#x2265; l&#x2200;(xi,xj) &#x2208; D,
+                 A &#x227D; 0
+" class="math-display" ></center></td><td class="equation-label">(7)</td></tr></table>
+<!--l. 169--><p class="nopar" >
+<!--l. 171--><p class="indent" >   Above formulation can be simplified by utilizing the connection between KL-divergence and
+LogDet divergence which is given as,
+   <table 
+class="equation"><tr><td><a 
+ id="x1-7002r8"></a>
+   <center class="math-display" >
+<img 
+src="main24x.png" alt="                  &#x1D4A9;--(x,&#x03BC;,A0-)      1-
+   &#x1D4A9; (x, &#x03BC;,A0 )log( &#x1D4A9; (x,&#x03BC;, A) )dx = 2 Dld(A, A0)
+where,   D  (A, A ) = tr(AA &#x2212;1) &#x2212; logdet(AA &#x2212;1) &#x2212; d
+           ld     0          0               0
+" class="math-display" ></center></td><td class="equation-label">(8)</td></tr></table>
+<!--l. 177--><p class="nopar" >
+Using <a 
+href="#x1-7002r8">8<!--tex4ht:ref: logdet --></a> and <a 
+href="#x1-7001r7">7<!--tex4ht:ref: gaussianitml --></a> problem can be reformulated as:
+
+   <table 
+class="equation"><tr><td><a 
+ id="x1-7003r9"></a>
+   <center class="math-display" >
+<img 
+src="main25x.png" alt="          minA    Dld(A,A0 )
+subject to  dA(xi,xj) &#x2264; u&#x2200;(xi,xj) &#x2208; S
+
+        dA(xi,xj) &#x2265; l&#x2200;(xi,xj) &#x2208; D
+                A &#x227D; 0
+" class="math-display" ></center></td><td class="equation-label">(9)</td></tr></table>
+<!--l. 186--><p class="nopar" >
+Above formulation can be solved efficiently using bregman projection method as described in
+[<span 
+class="cmbx-12">davis2007information</span>].
+<!--l. 190--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">1.1.4   </span> <a 
+ id="x1-80001.1.4"></a>Mirror Descent for Metric Learning</h5>
+<!--l. 191--><p class="noindent" >Mirror Descent for Metric Learning, by [<span 
+class="cmbx-12">kunapuli2012mirror</span>], is online metric learning approach
+which learns a pseudo-metric of form,
+   <table 
+class="equation-star"><tr><td>
+   <center class="math-display" >
+<img 
+src="main26x.png" alt="dM (x,z)2 = (x &#x2212; z)TM (x &#x2212; z )
+" class="math-display" ></center></td></tr></table>
+<!--l. 194--><p class="nopar" >
+given a pair of labeled points,(<span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">t</span></sub><span 
+class="cmmi-12">,z</span><sub><span 
+class="cmmi-8">t</span></sub><span 
+class="cmmi-12">,y</span><sub><span 
+class="cmmi-8">t</span></sub>)<sup><span 
+class="cmmi-8">T</span> </sup>, where <span 
+class="cmmi-12">y</span><sub>
+<span 
+class="cmmi-8">t</span></sub> denotes similarity/dissimilarity.<br 
+class="newline" />Taking <span 
+class="cmmi-12">&#x03BC; </span>as a margin, constraints can be written as, <div 
+class="gather-star"><img 
+src="main27x.png" alt="         y (&#x03BC; &#x2212; dM (x,z)2) &#x2265; 1
+               {                    2 }
+l(M,  &#x03BC;) = max   0,1 &#x2212; y(&#x03BC; &#x2212; dM (x,z) )
+" ></div>Where <span 
+class="cmmi-12">l</span>(<span 
+class="cmmi-12">M,&#x03BC;</span>) is hinge loss.To learn pseudo-metric incrementally from triplets, updates can be
+
+computed as, <div 
+class="gather-star"><img 
+src="main28x.png" alt="M     = argmin B  (M, M  ) + &#x03B7;&#x2329;&#x0394;   l(M  ,&#x03BC; ),M  &#x2212; M  &#x232A; + &#x03B7;&#x03C1;|||M |||
+  t+1     M&#x227B;0    &#x03C8;       t       M  t  t  t         t
+                                                &#x2032;
+        &#x03BC;t+1 = argm&#x03BC;i&#x2265;n1  B &#x03C8;(&#x03BC;,&#x03BC;t) + &#x03B7;&#x0394; &#x03BC;lt(Mt, &#x03BC;t)(&#x03BC; &#x2212; &#x03BC;t).
+" ></div>Where <span 
+class="cmmi-12">B</span><sub><span 
+class="cmmi-8">&#x03C8;</span></sub>(<span 
+class="cmmi-12">M,M</span><sub><span 
+class="cmmi-8">t</span></sub>) is bregman divergence, with <span 
+class="cmmi-12">&#x03C8;</span>(<span 
+class="cmmi-12">x</span>) was taken as either squared-Frobenius
+distance and von Neumann divergence.
+<!--l. 212--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a 
+ id="x1-90001.2"></a>Unsupervised Metric Learning</h4>
+<!--l. 213--><p class="noindent" >Unsupervised metric learning is generally seen as a byproduct of manifold learning or
+dimensionality reduction algorithms, although metric learning has a direct connection between
+linear manifold learning techniques as it finally learns a projective mapping but for non linear
+techniques, which are more useful, connection is not exact and can only be seen with some
+approximations. Because of these limitations of manifold techniques unsupervised metric learning
+has its own importance. Unsupervised metric learning aims to learn a metric without any
+supervision, most of the method proposed in this area either solve this problem in a domain
+specific way like clustering [<span 
+class="cmbx-12">cpcm</span>] or by understanding the geometric properties of
+data.
+<!--l. 215--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">1.2.1   </span> <a 
+ id="x1-100001.2.1"></a>Diffusion Maps</h5>
+<!--l. 216--><p class="noindent" >Diffusion maps [<span 
+class="cmbx-12">coifman2006diffusion</span>] is a non-linear dimensionality reduction technique.
+Consider a graph <span 
+class="cmmi-12">G </span>= (&#x03A9;<span 
+class="cmmi-12">,W</span>) where &#x03A9; = <img 
+src="main29x.png" alt="{xi}"  class="left" align="middle"><sub><span 
+class="cmmi-8">i</span><span 
+class="cmr-8">=1</span></sub><sup><span 
+class="cmmi-8">N</span></sup> are data samples and <span 
+class="cmmi-12">W </span>is a similarity matrix
+with <span 
+class="cmmi-12">W</span>(<span 
+class="cmmi-12">i,j</span>) <span 
+class="cmsy-10x-x-120">&#x2208; </span>[0<span 
+class="cmmi-12">, </span>1]. <span 
+class="cmmi-12">W </span>is obtained by applying Gaussian kernel on distances,
+   <table 
+class="equation"><tr><td><a 
+ id="x1-10001r10"></a>
+   <center class="math-display" >
+<img 
+src="main30x.png" alt="             {    2     }
+W (i,j) = exp  &#x2212;-d-(i,j)
+                  &#x03C3;2
+" class="math-display" ></center></td><td class="equation-label">(10)</td></tr></table>
+<!--l. 219--><p class="nopar" >
+Using <span 
+class="cmmi-12">W </span>we can obtain a transition matrix by row wise normalizing the similarity matrix:
+
+   <table 
+class="equation"><tr><td><a 
+ id="x1-10002r11"></a>
+   <center class="math-display" >
+<img 
+src="main31x.png" alt="                             N
+         W--(i,j)            &#x2211;
+P(i,j) =    d   where,  di =    Wij
+             i               j=1
+" class="math-display" ></center></td><td class="equation-label">(11)</td></tr></table>
+<!--l. 223--><p class="nopar" >
+Diffusion map introduce diffusion distance based on transition probabilities <span 
+class="cmmi-12">P </span>of data, given
+as:
+   <table 
+class="equation"><tr><td><a 
+ id="x1-10003r12"></a>
+   <center class="math-display" >
+<img 
+src="main32x.png" alt=" 2                     2
+dt = ||Pt(i,:) &#x2212; Pt(j,:)||1&#x2215;&#x03D5;
+" class="math-display" ></center></td><td class="equation-label">(12)</td></tr></table>
+<!--l. 227--><p class="nopar" >
+where, <span 
+class="cmmi-12">P</span><sub><span 
+class="cmmi-8">t</span></sub> = <span 
+class="cmmi-12">P</span><sup><span 
+class="cmmi-8">t</span></sup>.
+   <h5 class="subsubsectionHead"><span class="titlemark">1.2.2   </span> <a 
+ id="x1-110001.2.2"></a>Unsupervised metric learning using self-smoothing operator</h5>
+<!--l. 230--><p class="noindent" >Unsupervised metric learning using self-smoothing operator [<span 
+class="cmbx-12">jiang2011unsupervised</span>] proposed a
+diffusion based approach to improve input similarity between data points. It uses similar
+framework as diffusion maps but instead of using the notion of diffusion distance it uses a Self
+Smoothing Operator(SSO) which preserves the structure of weight matrix <span 
+class="cmmi-12">W </span>described in equation
+<a 
+href="#x1-10001r10">10<!--tex4ht:ref: dmaps:gaussian --></a>. Main steps of SSO algorithm are summarized below:
+      <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Compute smoothing kernel: <span 
+class="cmmi-12">P  </span>=  <span 
+class="cmmi-12">D</span><sup><span 
+class="cmsy-8">&#x2212;</span><span 
+class="cmr-8">1</span></sup><span 
+class="cmmi-12">W</span>, where <span 
+class="cmmi-12">D </span>is a diagonal matrix such that
+      <span 
+class="cmmi-12">D</span>(<span 
+class="cmmi-12">i,i</span>) = <span 
+class="cmex-10x-x-120">&#x2211;</span>
+  <sub><span 
+class="cmmi-8">k</span><span 
+class="cmr-8">=1</span></sub><sup><span 
+class="cmmi-8">n</span></sup> = <span 
+class="cmmi-12">W</span>(<span 
+class="cmmi-12">i,k</span>)
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Perform smoothing for t steps: <span 
+class="cmmi-12">W</span><sub><span 
+class="cmmi-8">t</span></sub> = <span 
+class="cmmi-12">WP</span><sup><span 
+class="cmmi-8">t</span></sup>
+
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">Self-normalization: <span 
+class="cmmi-12">W</span><sup><span 
+class="cmsy-8">&#x2217;</span></sup> = &#x0393;<sup><span 
+class="cmsy-8">&#x2212;</span><span 
+class="cmr-8">1</span></sup><span 
+class="cmmi-12">W</span><sub>
+<span 
+class="cmmi-8">t</span></sub>  where &#x0393; is a diagonal matrix such that &#x0393;(<span 
+class="cmmi-12">i,i</span>) =
+      <span 
+class="cmmi-12">W</span><sub><span 
+class="cmmi-8">t</span></sub>(<span 
+class="cmmi-12">i,i</span>)
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">Project <span 
+class="cmmi-12">W</span><sup><span 
+class="cmsy-8">&#x2217;</span></sup> to psd cone <span 
+class="cmmi-12">&#x0174;</span><sup><span 
+class="cmsy-8">&#x2217;</span></sup> = <span 
+class="cmmi-12">psd</span>(<span 
+class="cmmi-12">W</span><sup><span 
+class="cmsy-8">&#x2217;</span></sup>)</dd></dl>
+<!--l. 239--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">1.2.3   </span> <a 
+ id="x1-120001.2.3"></a>Unsupervised Distance Metric Learning using Predictability</h5>
+<!--l. 240--><p class="noindent" >Unsupervised distance metric learning using predictability [<span 
+class="cmbx-12">cpcm</span>] learns a transformation of data
+which give well separated clusters by minimizing the <span 
+class="cmti-12">blur ratio</span>. This work proposes a two step
+algorithm to achive this task which alternates between predicting cluster membership by using
+linear regression model and again cluster these predictions. Given input data matrix <span 
+class="cmmi-12">X</span><sub><span 
+class="cmmi-8">N</span><span 
+class="cmsy-8">&#x00D7;</span><span 
+class="cmmi-8">p</span></sub>
+with <span 
+class="cmmi-12">N </span>number of points in <span 
+class="cmmi-12">p </span>dimensional space goal is to find learn a mahalanobis
+distance metric <span 
+class="cmmi-12">d</span>(<span 
+class="cmmi-12">x,y</span>) = <img 
+src="main33x.png" alt="&#x2218; ---------------T-
+  (x &#x2212; y)A(x &#x2212; y )"  class="sqrt" > which minimizes the blur ration defined
+as:
+   <table 
+class="equation-star"><tr><td>
+   <center class="math-display" >
+<img 
+src="main34x.png" alt="min BR  (A, c) &#x2261; SSC--
+ A,c             SST
+" class="math-display" ></center></td></tr></table>
+<!--l. 243--><p class="nopar" >
+where SSC and SST are within cluster variance and total variance respectively.
+<!--l. 246--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a 
+ id="x1-130001.3"></a>Laplacian eigenmaps</h4>
+<!--l. 248--><p class="noindent" >Laplacian eigenmaps learns a low dimensional representation of the data such that the local
+geometry is optimally preserved, this low-dimensional manifold approximate the geometric
+structure of data. Steps below describes the methods in detail.<br 
+class="newline" />Consider set of data points <span 
+class="cmmi-12">X </span><span 
+class="cmsy-10x-x-120">&#x2208;&#x211B;</span><sup><span 
+class="cmmi-8">N</span></sup>, goal of laplacian eigenmaps is to find an embedding in <span 
+class="cmmi-12">m</span>
+dimensional space where <span 
+class="cmmi-12">m &#x003C; N </span>preserving the local properties of data.
+      <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Construct a graph <span 
+class="cmmi-12">G</span>(<span 
+class="cmmi-12">V,E</span>) where <span 
+class="cmmi-12">E </span>is set of edges and <span 
+class="cmmi-12">V </span>is a set of vertices. Each node in
+      the graph <span 
+class="cmmi-12">G </span>corresponds to a point in <span 
+class="cmmi-12">X</span>, we connect any two vertices <span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">i</span></sub> and <span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">j</span></sub> by an edge if
+      they are close, closeness can be defined in 2 ways:
+
+           <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+       (a) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmsy-10x-x-120">||</span><span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> <span 
+class="cmsy-10x-x-120">&#x2212; </span><span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">j</span></sub><span 
+class="cmsy-10x-x-120">||</span><sup><span 
+class="cmr-8">2</span></sup> <span 
+class="cmmi-12">&#x003C; &#x1D716;</span>, <span 
+class="cmsy-10x-x-120">||</span><span 
+class="cmmi-12">.</span><span 
+class="cmsy-10x-x-120">|| </span>is euclidean norm in <span 
+class="cmsy-10x-x-120">&#x211B;</span><sup><span 
+class="cmmi-8">N</span></sup> or,
+           </dd><dt class="enumerate-enumitem">
+      (b) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub> is in k nearest neighbour of <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">j</span></sub></dd></dl>
+      <!--l. 256--><p class="noindent" >here <span 
+class="cmmi-12">&#x1D716; </span>&#x0026; <span 
+class="cmmi-12">k </span>are user defined parameters.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">We construct a weight matrix <span 
+class="cmmi-12">W</span>(<span 
+class="cmmi-12">i,j</span>) which assigns weights between each edge in the graph
+      <span 
+class="cmmi-12">G</span>, weights can be assigned in two ways:
+           <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+       (a) </dt><dd 
+class="enumerate-enumitem">Simple minded approach is to assign <span 
+class="cmmi-12">W</span>(<span 
+class="cmmi-12">i,j</span>) = 1 if vertices <span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">i</span></sub> and <span 
+class="cmmi-12">v</span><sub><span 
+class="cmmi-8">j</span></sub> are connected
+           otherwise 0.
+           </dd><dt class="enumerate-enumitem">
+      (b) </dt><dd 
+class="enumerate-enumitem">Heat kernel based, we assign weight <span 
+class="cmmi-12">W</span>(<span 
+class="cmmi-12">i,j</span>) such that: <br 
+class="newline" /><span 
+class="cmmi-12">W</span>(<span 
+class="cmmi-12">i,j</span>) = <img 
+src="main35x.png" alt="(
+{      ||xi &#x2212;-xj||2-
+  exp (    t     )     if vi and vj are connected
+( 0                    otherwise"  class="left" align="middle"> </dd></dl>
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">Construct laplacian matrix <span 
+class="cmmi-12">L </span>= <span 
+class="cmmi-12">D </span><span 
+class="cmsy-10x-x-120">&#x2212; </span><span 
+class="cmmi-12">W </span>of the graph <span 
+class="cmmi-12">G</span>, where <span 
+class="cmmi-12">D </span>is a diagonal matrix with
+      <span 
+class="cmmi-12">D</span><sub><span 
+class="cmmi-8">ii</span></sub> = &#x03A3;<sub><span 
+class="cmmi-8">j</span></sub><span 
+class="cmmi-12">W</span>(<span 
+class="cmmi-12">i,j</span>). Final low dimensional embedding can be computes by solving generalized
+      eigen decomposition
+      <table 
+class="equation-star"><tr><td>
+      <center class="math-display" >
+      <img 
+src="main36x.png" alt="Lv =  &#x03BB;Dv
+      " class="math-display" ></center></td></tr></table>
+      <!--l. 271--><p class="nopar" >
+      Let 0 = <span 
+class="cmmi-12">&#x03BB;</span><sub><span 
+class="cmr-8">0</span></sub> <span 
+class="cmsy-10x-x-120">&#x2264; </span><span 
+class="cmmi-12">&#x03BB;</span><sub><span 
+class="cmr-8">1</span></sub><span 
+class="cmmi-12">... </span><span 
+class="cmsy-10x-x-120">&#x2264; </span><span 
+class="cmmi-12">&#x03BB;</span><sub><span 
+class="cmmi-8">m</span></sub> be the first smallest <span 
+class="cmmi-12">m </span>+ 1 eigenvalues, choose corresponding
+      eigenvectors <span 
+class="cmmi-12">v</span><sub><span 
+class="cmr-8">1</span></sub><span 
+class="cmmi-12">,v</span><sub><span 
+class="cmr-8">2</span></sub><span 
+class="cmmi-12">...v</span><sub><span 
+class="cmmi-8">m</span></sub> ignoring eigenvector corresponding to <span 
+class="cmmi-12">&#x03BB;</span><sub><span 
+class="cmr-8">0</span></sub> = 0. Embedding coordinates
+      can be calculates as mapping: <div class="eqnarray">
+      <center class="math-display" >
+
+      <img 
+src="main37x.png" alt="             x  &#x2208; &#x211B;N  &#x21A6;&#x2192;  y &#x2208; &#x211B;m
+         T    i           i
+where   yi =  [v1(i),v2(i),...vm (i)]
+      " class="math-display" ></center>
+      </div></dd></dl>
+<!--l. 279--><p class="noindent" ><span 
+class="cmmi-12">y</span><sub><span 
+class="cmmi-8">i</span> </sub> <span 
+class="cmmi-12">,</span> <span style="margin-left:3.26288pt" class="tmspace"></span> <span 
+class="cmmi-12">i </span>= 1<span 
+class="cmmi-12">, </span>2<span 
+class="cmmi-12">...n </span>is the coordinates in <span 
+class="cmmi-12">m </span>dimensional embedded space.
+<!--l. 282--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a 
+ id="x1-140001.4"></a>Active Metric Learning</h4>
+<!--l. 283--><p class="noindent" >Active learning is a form of semi-supervised learning, difference is that in an active learning setup
+algorithm itself chooses what data it wants to learn. Aim is to select data instances which is most
+effective in training the model this saves significant cost to the end user end by asking less
+queries.
+<!--l. 285--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">1.4.1   </span> <a 
+ id="x1-150001.4.1"></a>Active Metric Learning for Object Recognition</h5>
+<!--l. 286--><p class="noindent" >Active metric learning for object recognition by [<span 
+class="cmbx-12">ebert2012active</span>] propose to combine metric
+learning with active sample selection strategy for classification. This work explores to
+exploitation(entropy based and margin based) and two exploration(kernel farthest first and graph
+density) based strategy for active sample selection. To learn a metric Information theoretic
+metric learning is used, which is combined with active sample selection is two different
+modes,
+      <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Batch active metric learning: In this mode metric is learned only once, it starts with
+      querying the desired number of labeled data points according to the chosen sample
+      selection strategy and learns a metric based on this labeled data.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Interleaved active metric learning: This approach alternates between active sample
+      selection and metric learning.</dd></dl>
+<!--l. 295--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">1.4.2   </span> <a 
+ id="x1-160001.4.2"></a>Metric+Active Learning and Its Applications for IT Service Classification</h5>
+<!--l. 296--><p class="noindent" >Metric+Active learning [<span 
+class="cmbx-12">wang2009two</span>] learns a metric for ticket classification which are used by
+IT service providers. This work proposed two methods to solve this problem:
+
+      <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Discriminative Neighborhood Metric Learning (DNML): DNML aims to minimize the local
+      discriminability of data which is same as maximize the local scatterness and to minimize the
+      local compactness simultaneously.
+      <table 
+class="equation-star"><tr><td>
+      <center class="math-display" >
+      <img 
+src="main38x.png" alt="     &#x2211;       o(x &#x2212; x )T C(x  &#x2212; x )
+J =  &#x2211;-j:xj&#x2208;&#x1D4A9;-i--i----j-----i----j--
+       k:xk&#x2208;&#x1D4A9; e(xi &#x2212; xk )T C(xi &#x2212; xk)
+             i
+      " class="math-display" ></center></td></tr></table>
+      <!--l. 301--><p class="nopar" >
+      Where <span 
+class="cmsy-10x-x-120">&#x1D4A9;</span><sub><span 
+class="cmmi-8">i</span></sub><sup><span 
+class="cmmi-8">o</span></sup> is nearest points from <span 
+class="cmmi-12">x</span><sub>
+<span 
+class="cmmi-8">i</span></sub> with same labels as of <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub>, <span 
+class="cmsy-10x-x-120">&#x1D4A9;</span><sub><span 
+class="cmmi-8">i</span></sub><sup><span 
+class="cmmi-8">e</span></sup> are nearest points from <span 
+class="cmmi-12">x</span><sub>
+<span 
+class="cmmi-8">i</span></sub>
+      which have different labels than of <span 
+class="cmmi-12">x</span><sub><span 
+class="cmmi-8">i</span></sub>.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Active Learning with Median Selection(ALMS): ALMS improves Transductive Experimental
+      Design (TED) by using available labelled information.</dd></dl>
+    
+</body></html> 
+
+
+
