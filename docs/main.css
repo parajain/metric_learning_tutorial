@@ -34,13 +34,13 @@ div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
 div.obeylines-v p { margin-top:0; margin-bottom:0; }
 .overline{ text-decoration:overline; }
 .overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
+td.displaylines {text-align:left; white-space:nowrap;}
+.centerline {text-align:left;}
 .rightline {text-align:right;}
 div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
 .fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
 div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.center div.fbox {text-align:left; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
 div.minipage{width:100%;}
 div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
 div.center div {text-align: left;}
@@ -50,7 +50,7 @@ div.flushleft {text-align: left;}
 .underline{ text-decoration:underline; }
 .underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
 .framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
+.framebox-c {text-align:left;}
 .framebox-l {text-align:left;}
 .framebox-r {text-align:right;}
 span.thank-mark{ vertical-align: super }
@@ -78,23 +78,23 @@ a span.TEX span.E {text-decoration: none; }
 span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
 span.LATEX span.TEX{ position:relative; left: -0.4em; }
 div.float, div.figure {margin-left: auto; margin-right: auto;}
-div.float img {text-align:center;}
-div.figure img {text-align:center;}
+div.float img {text-align:left;}
+div.figure img {text-align:left;}
 .marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
 .marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
 table.equation {width:100%;}
-.equation td{text-align:center; }
+.equation td{text-align:left; }
 td.equation { margin-top:1em; margin-bottom:1em; } 
-td.equation-label { width:5%; text-align:center; }
+td.equation-label { width:5%; text-align:left; }
 td.eqnarray4 { width:5%; white-space: normal; }
 td.eqnarray2 { width:5%; }
 table.eqnarray-star, table.eqnarray {width:100%;}
-div.eqnarray{text-align:center;}
-div.array {text-align:center;}
-div.pmatrix {text-align:center;}
+div.eqnarray{text-align:left;}
+div.array {text-align:left;}
+div.pmatrix {text-align:left;}
 table.pmatrix {width:100%;}
 span.pmatrix img{vertical-align:middle;}
-div.pmatrix {text-align:center;}
+div.pmatrix {text-align:left;}
 table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
 img.cdots{vertical-align:middle;}
@@ -109,7 +109,7 @@ p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-botto
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
 .quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
+div.maketitle {text-align:left;}
 h2.titleHead{text-align:center;}
 div.maketitle{ margin-bottom: 2em; }
 div.author, div.date {text-align:center;}
@@ -125,18 +125,18 @@ div.verbatiminput {font-family: monospace; white-space: nowrap; }
 .rotatebox{display: inline-block;}
 .figure img.graphics {margin-left:10%;}
 dt.enumerate-enumitem{float:left; clear:left; margin-left:1em; margin-right:1em;}
-.equation td{text-align:center; }
-.equation-star td{text-align:center; }
+.equation td{text-align:left; }
+.equation-star td{text-align:left; }
 table.equation-star { width:100%; }
 table.equation { width:100%; }
 table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
 table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
-td.align-label { width:5%; text-align:center; }
+td.align-label { width:5%; text-align:left; }
 td.align-odd { text-align:right; padding-right:0.3em;}
 td.align-even { text-align:left; padding-right:0.6em;}
 table.multline, table.multline-star {width:100%;}
-td.gather {text-align:center; }
+td.gather {text-align:left; }
 table.gather {width:100%;}
-div.gather-star {text-align:center;}
+div.gather-star {text-align:left;}
 /* end css.sty */
 
